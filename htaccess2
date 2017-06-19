@@ -1,0 +1,7 @@
+RewriteEngine On 
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+<files loginDB.txt>
+order allow,deny
+deny from all
+</files>
