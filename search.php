@@ -129,6 +129,8 @@ function appr_to_btncolor($s) {
             $afilter2 = " AND appr = \"Approvato\"";
         } elseif ($afilter=='Non Approvato') {
             $afilter2 = " AND appr = \"Non Approvato\"";
+        } elseif ($afilter=='Onorario') {
+            $afilter2 = " AND appr = \"Onorario\"";
         } else {
             $afilter2 = "";
         }
@@ -260,7 +262,7 @@ function appr_to_btncolor($s) {
                             $backcolor = status_to_btncolor($row['q2017']);
                             $backcolor_appr = appr_to_btncolor($row['appr']);
                             //$col_q2017 = "<td class=\"" . $backcolor . "\" onClick=\"document.location.href='http://www.google.com';\" onmouseover=\"\" style=\"cursor: pointer;\">" . $row['q2017'] . "</td>";
-                            if ($row['q2017']!='Onorario'){
+                            if ($row['appr']!='Onorario'){
                                 $col_q2017 = "<td>
                                 <form action=\"pagato.php\" method=\"GET\">
                                     <input type=\"submit\" value=\"". $row['q2017'] ."\" class=\"btn btn-default; " . $backcolor . "\" style=\"width:100%\">
@@ -272,11 +274,12 @@ function appr_to_btncolor($s) {
                             </td>";
                             } else {
                                 $col_q2017 = "<td>
-                                    <input type=\"submit\" value=\"Membro onorario\" class=\"btn btn-default; disabled=\"disabled\" style=\"width:100%\">
+                                    <input type=\"submit\" value=\"Membro onorario\" class=\"btn btn-info; disabled=\"disabled\" style=\"width:100%\">
                                     </input>
                             </td>"; 
                             }
-                            $col_appr = "<td>
+                            if ($row['appr']!='Onorario'){
+                                $col_appr = "<td>
                                 <form action=\"appr.php\" method=\"GET\">
                                     <input type=\"submit\" value=\"". $row['appr'] ."\" class=\"btn btn-default; " . $backcolor_appr . "\" style=\"width:100%\">
                                     </input>
@@ -285,6 +288,12 @@ function appr_to_btncolor($s) {
                                     <input type=\"hidden\" name=\"page\" value=\"".$thisPage."\"></input>
                                 </form>
                             </td>";
+                            } else {
+                                $col_appr = "<td>
+                                    <input type=\"submit\" value=\"Membro onorario\" class=\"btn btn-info; disabled=\"disabled\" style=\"width:100%\">
+                                    </input>
+                            </td>";  
+                            }
                         } else { 
                             $col_surname = "<td>".$row['cognome']."</td>";
                             $backcolor = status_to_color($row['q2017']);

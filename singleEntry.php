@@ -186,15 +186,11 @@ function format_date($date){
                     </tr>
                     <tr>
                         <td>Quota anno 2017</td>
-                        <!-- <?php
-$backcolor = status_to_color($row['q2017']);
-$col_status = "<td class=\"" . $backcolor . "\">" . $row['q2017'] . "</td>";
-echo "<td class=\"" . $backcolor . "\">" . $row['q2017'] . "</td>"
-?>-->
                         <?php 
-    $backcolor = status_to_btncolor($row['q2017']);
-$thisPage = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-echo "<td>
+                        if ($row['appr']!='Onorario'){
+                            $backcolor = status_to_btncolor($row['q2017']);
+                            $thisPage = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                            echo "<td>
                                 <form action=\"pagato.php\" method=\"GET\">
                                     <input type=\"submit\" value=\"". $row['q2017'] ."\" class=\"btn btn-default; " . $backcolor . "\" style=\"width:100%\">
                                     </input>
@@ -202,15 +198,22 @@ echo "<td>
                                     <input type=\"hidden\" name=\"statusquo\" value=\"" . $row['q2017'] . "\"></input>
                                     <input type=\"hidden\" name=\"page\" value=\"".$thisPage."\"></input>
                                 </form>
-                            </td>"
+                            </td>";
+                        } else {
+                            echo "<td>
+                                    <input type=\"submit\" value=\"Membro onorario\" class=\"btn btn-info; disabled=\"disabled\" style=\"width:100%\">
+                                    </input>
+                                </td>"; 
+                        }
                         ?>
                     </tr>
                     <tr>
                         <td>Approvazione</td>
                         <?php 
-    $backcolor = appr_to_btncolor($row['appr']);
-$thisPage = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-echo "<td>
+                        if ($row['appr']!='Onorario'){    
+                            $backcolor = appr_to_btncolor($row['appr']);
+                            $thisPage = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+                            echo "<td>
                                 <form action=\"appr.php\" method=\"GET\">
                                     <input type=\"submit\" value=\"". $row['appr'] ."\" class=\"btn btn-default; " . $backcolor . "\" style=\"width:100%\">
                                     </input>
@@ -218,7 +221,13 @@ echo "<td>
                                     <input type=\"hidden\" name=\"statusquo\" value=\"" . $row['appr'] . "\"></input>
                                     <input type=\"hidden\" name=\"page\" value=\"".$thisPage."\"></input>
                                 </form>
-                            </td>"
+                            </td>";
+                        } else {
+                            echo "<td>
+                <input type=\"submit\" value=\"Membro onorario\" class=\"btn btn-info; disabled=\"disabled\" style=\"width:100%\">
+                </input>
+             </td>";
+                        }
                         ?>
                     </tr>
                     <!--

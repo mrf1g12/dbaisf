@@ -137,7 +137,7 @@ function fixFilesArray(&$files)
 
 
         //UPLOAD FILE
-        $baseurl = "https://www.ai-sf.it/dbaisf/spese_lc/";
+        $baseurl = "www.ai-sf.it/dbaisf/spese_lc/";
         $url = array();
         $existed = array();
 
@@ -246,9 +246,13 @@ function fixFilesArray(&$files)
         //$stringa = "INSERT IGNORE INTO spese_LC SET (LC) VALUES ('". $lc . "')";
         //echo $stringa;
         $result = $mysqli->query($stringa);
+        
+        
 
-        header('Location: ' . "single_mov.php/?rid=".$rid); 
+        header('Location: ' . "single_mov.php/?rid=".$rid."&id=".$ID); 
+        #header('Location: ' . "search_movimenti.php"); 
 
+        
         ?>
     </body>
 </html>

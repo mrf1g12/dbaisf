@@ -124,7 +124,7 @@ mysqli_set_charset($mysqli, 'utf8');
                 <div class="row" style="text-align:left">
                     <div  class="col-md-2"></div>
                     <div class="col-md-3"><b>Filtra su quota associativa</b></div>
-                    <div class="col-md-3"><b>Filtra su approvato</b></div>
+                    <div class="col-md-3"><b>Filtra su approvazione</b></div>
                     <div class="col-md-2"><b>Ordina per</b></div>
                     <div  class="col-md-2"></div>
                 </div>
@@ -144,6 +144,7 @@ mysqli_set_charset($mysqli, 'utf8');
                             <option value="all"></option>
                             <option value="Approvato">Approvato</option>
                             <option value="Non Approvato">Non Approvato</option>
+                            <option value="Onorario">Onorario</option>
                             <option value="-">-</option>
                         </select>
                     </div>
