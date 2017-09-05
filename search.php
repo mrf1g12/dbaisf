@@ -115,11 +115,11 @@ function appr_to_btncolor($s) {
 
         // filtering by quota
         if ($qfilter=='Pagato') {
-            $qfilter2 = " AND q2017 = \"Pagato\"";
+            $qfilter2 = " AND q2017_2018 = \"Pagato\"";
         } elseif ($qfilter=='Non Pagato') {
-            $qfilter2 = " AND q2017 = \"Non Pagato\"";
+            $qfilter2 = " AND q2017_2018 = \"Non Pagato\"";
         } elseif ($qfilter=='-') {
-            $qfilter2 = " AND q2017 = \"-\"";
+            $qfilter2 = " AND q2017_2018 = \"-\"";
         } else {
             $qfilter2 = "";
         }
@@ -188,7 +188,7 @@ function appr_to_btncolor($s) {
             <div class="col-md-1"></div>
             <div class="col-md-4">
                 <?php
-                $stringa1 = "SELECT cognome,nome,email,uni,studi,data,q2017,appr FROM " . $table . $query . $ufilter . $qfilter2 . $afilter2 . $sorting2;
+                $stringa1 = "SELECT cognome,nome,email,uni,studi,data,q2017,q2017_2018,appr FROM " . $table . $query . $ufilter . $qfilter2 . $afilter2 . $sorting2;
                 $stringa_email = "SELECT email FROM " . $table . $query . $ufilter . $qfilter2 . $afilter2 . $sorting2;
                 echo "
                     <form action=\"download.php\" method=\"GET\" style=\"float: left;\">
@@ -228,7 +228,7 @@ function appr_to_btncolor($s) {
                         <th>Università</th>
                         <th>Studi</th>
                         <th>Data</th>
-                        <th>Quota 2017</th>
+                        <th>Quota 2017/2018</th>
                         <th>Approvazione</th>
                     </tr>
 
@@ -259,21 +259,21 @@ function appr_to_btncolor($s) {
                             $linkto = "https://www.ai-sf.it/dbaisf/singleEntry.php?id=" . $row['id']."&page=".urlencode($thisPage)."";
                             $col_surname = "<td><a href=\"".$linkto."\">".$row['cognome']."</a></td>";
 
-                            $backcolor = status_to_btncolor($row['q2017']);
+                            $backcolor = status_to_btncolor($row['q2017_2018']);
                             $backcolor_appr = appr_to_btncolor($row['appr']);
                             //$col_q2017 = "<td class=\"" . $backcolor . "\" onClick=\"document.location.href='http://www.google.com';\" onmouseover=\"\" style=\"cursor: pointer;\">" . $row['q2017'] . "</td>";
                             if ($row['appr']!='Onorario'){
-                                $col_q2017 = "<td>
+                                $col_q2017_2018 = "<td>
                                 <form action=\"pagato.php\" method=\"GET\">
-                                    <input type=\"submit\" value=\"". $row['q2017'] ."\" class=\"btn btn-default; " . $backcolor . "\" style=\"width:100%\">
+                                    <input type=\"submit\" value=\"". $row['q2017_2018'] ."\" class=\"btn btn-default; " . $backcolor . "\" style=\"width:100%\">
                                     </input>
                                     <input type=\"hidden\" name=\"id\" value=\"" . $row['id'] . "\"></input>
-                                    <input type=\"hidden\" name=\"statusquo\" value=\"" . $row['q2017'] . "\"></input>
+                                    <input type=\"hidden\" name=\"statusquo\" value=\"" . $row['q2017_2018'] . "\"></input>
                                     <input type=\"hidden\" name=\"page\" value=\"".$thisPage."\"></input>
                                 </form>
                             </td>";
                             } else {
-                                $col_q2017 = "<td>
+                                $col_q2017_2018 = "<td>
                                     <input type=\"submit\" value=\"Membro onorario\" class=\"btn btn-info; disabled=\"disabled\" style=\"width:100%\">
                                     </input>
                             </td>"; 
@@ -296,16 +296,16 @@ function appr_to_btncolor($s) {
                             }
                         } else { 
                             $col_surname = "<td>".$row['cognome']."</td>";
-                            $backcolor = status_to_color($row['q2017']);
-                            if ($row['q2017']!='Onorario'){
-                                $col_q2017 = "<td class=\"" . $backcolor . "\">" . $row['q2017'] . "</td>";    
+                            $backcolor = status_to_color($row['q2017_2018']);
+                            if ($row['appr']!='Onorario'){
+                                $col_q2017_2018 = "<td class=\"" . $backcolor . "\">" . $row['q2017_2018'] . "</td>";    
                             } else {
-                                $col_q2017 = "<td>Membro onorario</td>";    
+                                $col_q2017_2018 = "<td>Membro onorario</td>";    
                             }
                             $col_appr = "<td>".$row['appr']. "</td>";
                         }
 
-                        echo "<tr>" . $col_surname . $col_name . $col_email . $col_uni . $col_stud . $col_data . $col_q2017 . $col_appr . "</tr>";
+                        echo "<tr>" . $col_surname . $col_name . $col_email . $col_uni . $col_stud . $col_data . $col_q2017_2018 . $col_appr . "</tr>";
 
                     }
 

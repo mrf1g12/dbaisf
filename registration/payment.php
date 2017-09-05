@@ -177,7 +177,7 @@ function appr_to_btncolor($s) {
             Beneficiario: Associazione Italiana Studenti di Fisica<br>
             IBAN: IT64N0335901600100000133131<br>
             BIC/SWIFT: BCITITMX<br>
-            Causale: Quota associativa anno 2017 - " . $row['nome'] . " " . $row['cognome'] ."
+            Causale: Quota associativa anno 2017/2018 - " . $row['nome'] . " " . $row['cognome'] ."
             <br><br>
             Il bonifico deve essere effettuato entro 15 giorni da oggi. Diversamente, la tua iscrizione non sarà più valida e verrà cancellata.
             <br>
@@ -197,7 +197,7 @@ function appr_to_btncolor($s) {
                 Beneficiario: Associazione Italiana Studenti di Fisica<br>
                 IBAN: IT64N0335901600100000133131<br>
                 BIC/SWIFT: BCITITMX<br>
-                Causale: Quota associativa anno 2017 - " . $row['nome'] . " " . $row['cognome'] ."
+                Causale: Quota associativa anno 2017/2018 - " . $row['nome'] . " " . $row['cognome'] ."
                 <br><br>
                 Il bonifico deve essere effettuato entro 15 giorni da oggi. Diversamente, la tua iscrizione non sarà più valida e verrà cancellata.
                 <br>

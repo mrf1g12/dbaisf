@@ -32,7 +32,7 @@ $status=$_POST['payment_status'];
 $nome=$_POST['first_name'];
 $cognome=$_POST['last_name'];
 if ($status == 'Completed'){
-    $stringa = "UPDATE " . $table . " SET q2017='Pagato', metodo='".$nome . " ".$cognome ."' WHERE id='" . $sid ."'";
+    $stringa = "UPDATE " . $table . " SET q2017_2018='Pagato', metodo='".$nome . " ".$cognome ."' WHERE id='" . $sid ."'";
     $result = $mysqli->query($stringa);
 }
 

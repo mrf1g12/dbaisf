@@ -75,6 +75,7 @@ $data = $date = date('Y-m-d');
 //$data = $mysqli->real_escape_string("2017-11-10");
 $stato2016 = '-';
 $stato2017 = 'Non Pagato';
+$stato1718 = 'Non Pagato';
 $appr = 'Non Approvato';
 $password = generatePassword(8);
 
@@ -103,7 +104,7 @@ if (!empty($name) and !empty($surname) and !empty($birthday)){
         }
     } else {
         //  if (strpos($from_url, 'edit') == false) { //If $from_url does NOT contain "edit", then add record
-        $stringa = "INSERT IGNORE INTO " . $table . " (id, nome, cognome, luogo_nascita, data_nascita, CF, indirizzo, cap, email, uni, studi, data,metodo,q2016, q2017, appr, password) VALUES (UUID_SHORT(), \"" . ucwords($name) . "\", \"" . ucwords($surname) . "\", \"" . ucwords($birthplace) . "\", '" . $birthday . "', '" . strtoupper($cf) . "', \"" . ucwords($address) . "\", '" .  $cap . "', '" .  $email . "', '" . $university . "', '" . $study . "', '" . $data . "', 'n/a', '" . $stato2016 . "', '" . $stato2017 . "', '" . $appr . "', '" . $password . "')";
+        $stringa = "INSERT IGNORE INTO " . $table . " (id, nome, cognome, luogo_nascita, data_nascita, CF, indirizzo, cap, email, uni, studi, data,metodo,q2016, q2017, q2017_2018, appr, password) VALUES (UUID_SHORT(), \"" . ucwords($name) . "\", \"" . ucwords($surname) . "\", \"" . ucwords($birthplace) . "\", '" . $birthday . "', '" . strtoupper($cf) . "', \"" . ucwords($address) . "\", '" .  $cap . "', '" .  $email . "', '" . $university . "', '" . $study . "', '" . $data . "', 'n/a', '" . $stato2016 . "', '" . $stato2017 . "', '" . $stato17/18 . "', '" . $appr . "', '" . $password . "')";
         $result = $mysqli->query($stringa);
     }
 }

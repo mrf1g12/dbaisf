@@ -104,7 +104,7 @@ document.location = "search.php";
                 $result1 = $mysqli->query($stringa1);
                 if ($result1->num_rows == 1) {
                     $record = $result1->fetch_assoc(); 
-                    $stringa = "UPDATE " . $table . " SET q2017='Pagato' WHERE id = '" . $record['id'] . "'";
+                    $stringa = "UPDATE " . $table . " SET q2017_2018='Pagato' WHERE id = '" . $record['id'] . "'";
                     $result = $mysqli->query($stringa);
 
 

@@ -184,18 +184,22 @@ function format_date($date){
                         <td><div class="med_skip"></div></td>
                         <td><div class="med_skip"></div></td>
                     </tr>
-                    <tr>
+                     <tr>
                         <td>Quota anno 2017</td>
+                        <td><?php echo $row['q2017'];?></td>
+                    </tr>
+                    <tr>
+                        <td>Quota anno 2017/2018</td>
                         <?php 
                         if ($row['appr']!='Onorario'){
-                            $backcolor = status_to_btncolor($row['q2017']);
+                            $backcolor = status_to_btncolor($row['q2017_2018']);
                             $thisPage = 'https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
                             echo "<td>
                                 <form action=\"pagato.php\" method=\"GET\">
-                                    <input type=\"submit\" value=\"". $row['q2017'] ."\" class=\"btn btn-default; " . $backcolor . "\" style=\"width:100%\">
+                                    <input type=\"submit\" value=\"". $row['q2017_2018'] ."\" class=\"btn btn-default; " . $backcolor . "\" style=\"width:100%\">
                                     </input>
                                     <input type=\"hidden\" name=\"id\" value=\"" . $row['id'] . "\"></input>
-                                    <input type=\"hidden\" name=\"statusquo\" value=\"" . $row['q2017'] . "\"></input>
+                                    <input type=\"hidden\" name=\"statusquo\" value=\"" . $row['q2017_2018'] . "\"></input>
                                     <input type=\"hidden\" name=\"page\" value=\"".$thisPage."\"></input>
                                 </form>
                             </td>";

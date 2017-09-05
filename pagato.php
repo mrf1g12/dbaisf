@@ -53,7 +53,7 @@ $row = $result->fetch_array();
 #$jotformAPI = new JotForm($api);
 
 if ($statusquo=='Non Pagato' OR $statusquo=='-'){
-    $stringa = "UPDATE " . $table . " SET q2017='Pagato' WHERE id='" . $sid ."'";
+    $stringa = "UPDATE " . $table . " SET q2017_2018='Pagato' WHERE id='" . $sid ."'";
     $result = $mysqli->query($stringa);
     #$edit = array("46" => "Pagato");
     #$jotformAPI->editSubmission($sid, $edit);
@@ -81,7 +81,7 @@ if ($statusquo=='Non Pagato' OR $statusquo=='-'){
     #$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
     $mail->isHTML(true);                                  // Set email format to HTML
 
-    $mail->Subject = 'Quota associativa AISF';
+    $mail->Subject = 'Quota associativa AISF anno 2017/2018';
     $mail->Body    = "Ciao " . $row['nome'] .",<br><p>Abbiamo ricevuto la tua quota associativa!<br>
         Puoi modificare ed aggiornare i tuoi dati in ogni momento scrivendo a ass.it.stud.fisica@ai-sf.it</p><br><p>Grazie per aver aderito all'AISF!</p><p></p><p>L'Associazione Italiana Studenti di Fisica</p>";
     $mail->send();
