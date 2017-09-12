@@ -90,7 +90,7 @@ if (!empty($name) and !empty($surname) and !empty($birthday)){
     #header ("location: www.google.it?num=" . $result1->num_rows);
 
     if ($result1->num_rows > 0) {
-        if ($row['q2017']!='Pagato'){
+        if ($row['q2017_2018']!='Pagato'){
             echo "
                 <script>
                     var x=window.alert(\"I tuoi dati sono già presenti nel database AISF. Puoi procedere con il pagamento della quota associativa 2017.\")
@@ -104,7 +104,7 @@ if (!empty($name) and !empty($surname) and !empty($birthday)){
         }
     } else {
         //  if (strpos($from_url, 'edit') == false) { //If $from_url does NOT contain "edit", then add record
-        $stringa = "INSERT IGNORE INTO " . $table . " (id, nome, cognome, luogo_nascita, data_nascita, CF, indirizzo, cap, email, uni, studi, data,metodo,q2016, q2017, q2017_2018, appr, password) VALUES (UUID_SHORT(), \"" . ucwords($name) . "\", \"" . ucwords($surname) . "\", \"" . ucwords($birthplace) . "\", '" . $birthday . "', '" . strtoupper($cf) . "', \"" . ucwords($address) . "\", '" .  $cap . "', '" .  $email . "', '" . $university . "', '" . $study . "', '" . $data . "', 'n/a', '" . $stato2016 . "', '" . $stato2017 . "', '" . $stato17/18 . "', '" . $appr . "', '" . $password . "')";
+        $stringa = "INSERT IGNORE INTO " . $table . " (id, nome, cognome, luogo_nascita, data_nascita, CF, indirizzo, cap, email, uni, studi, data,metodo,q2016, q2017, q2017_2018, appr, password) VALUES (UUID_SHORT(), \"" . ucwords($name) . "\", \"" . ucwords($surname) . "\", \"" . ucwords($birthplace) . "\", '" . $birthday . "', '" . strtoupper($cf) . "', \"" . ucwords($address) . "\", '" .  $cap . "', '" .  $email . "', '" . $university . "', '" . $study . "', '" . $data . "', 'n/a', '" . $stato2016 . "', '" . $stato2017 . "', '" . $stato1718 . "', '" . $appr . "', '" . $password . "')";
         $result = $mysqli->query($stringa);
     }
 }

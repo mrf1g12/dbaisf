@@ -96,7 +96,7 @@ if ($statusquo=='Non Pagato' OR $statusquo=='-'){
 
 
 } else {
-    $stringa = "UPDATE " . $table . " SET q2017='Non Pagato' WHERE id='" . $sid ."'";
+    $stringa = "UPDATE " . $table . " SET q2017_2018='Non Pagato' WHERE id='" . $sid ."'";
     $result = $mysqli->query($stringa);
     #$edit = array("46" => "Non Pagato");
     #$jotformAPI->editSubmission($sid, $edit);
